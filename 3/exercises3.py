@@ -1,5 +1,5 @@
 import numpy as np
-from exercise1 import sigmoid
+from exercises1 import sigmoid
 from exercises2 import indentity_function
 
 def init_network():

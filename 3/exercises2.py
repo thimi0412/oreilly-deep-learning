@@ -1,5 +1,5 @@
 import numpy as np
-from exercise1 import sigmoid
+from exercises1 import sigmoid
 
 def indentity_function(x):
     return x
