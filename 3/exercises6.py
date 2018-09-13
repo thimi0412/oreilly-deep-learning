@@ -34,11 +34,13 @@ if __name__ == '__main__':
     X, t = get_data()
     network = init_network()
 
+    batch_size = 100
     accuracy_cnt = 0
-    for i in range(len(X)):
-        y = predict(network, X[i])
-        p = np.argmax(y) # 確率がもっとも高い要素のインデックスを取得
-        if p == t[i]:
-            accuracy_cnt += 1
+
+    for i in range(0, len(X), batch_size):
+        X_batch = X[i: i + batch_size]
+        y_batch = predict(network, X_batch)
+        p = np.argmax(y_batch, axis=1) # 確率がもっとも高い要素のインデックスを取得
+        accuracy_cnt += np.sum(p == t[i:i+batch_size])
     
     print("Accuracy:" + str(float(accuracy_cnt) / len(X)))
