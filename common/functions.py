@@ -11,7 +11,7 @@ def step_function(x):
 
 
 def sigmoid(x):
-    return 1 / (1 + np.exp(-x))    
+    return 0.5 * np.tanh(0.5 * x) + 0.5
 
 
 def sigmoid_grad(x):
